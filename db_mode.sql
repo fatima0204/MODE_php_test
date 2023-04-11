@@ -38,7 +38,7 @@ CREATE TABLE `conseils` (
 -- Déchargement des données de la table `conseils`
 --
 
-INSERT INTO `conseils` (`id`, `titre`, `nbPages`, `image`) VALUES
+INSERT INTO `conseils` (`id`, `titre`, `article`, `image`) VALUES
 (1, 'robe', 23, '62611_Bel-ami-guy-de-maupaant.jpeg'),
 (2, 'chaussure', 300, 'lesmiserables.jpeg'),
 (3, 'sac', 200, 'mme.jpeg'),
