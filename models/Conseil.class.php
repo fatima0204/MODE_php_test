@@ -2,13 +2,13 @@
 class Conseil{
     private $id;
     private $titre;
-    private $nbPages;
+    private $article;
     private $image;
 
-    public function __construct($id,$titre,$nbPages,$image){
+    public function __construct($id,$titre,$article,$image){
         $this->id = $id;
         $this->titre = $titre;
-        $this->nbPages = $nbPages;
+        $this->article = $article;
         $this->image = $image;
     }
 
@@ -18,8 +18,8 @@ class Conseil{
     public function getTitre(){return $this->titre;}
     public function setTitre($titre){$this->titre = $titre;}
 
-    public function getNbPages(){return $this->nbPages;}
-    public function setNbPages($nbPages){$this->nbPages = $nbPages;}
+    public function getArticle(){return $this->article;}
+    public function setArticle($article){$this->article = $article;}
 
     public function getImage(){return $this->image;}
     public function setImage($image){$this->image = $image;}

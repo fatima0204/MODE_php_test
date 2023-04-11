@@ -10,7 +10,7 @@ ob_start();
 
     <div class="col-6">
         <p class="textaffich">Titre : <?= $conseil->getTitre();?></p>
-        <p class="textaffich">Nombre de pages : <?= $conseil->getNbPages();?></p>
+        <p class="textaffich">Article : <?= $conseil->getArticle();?></p>
     </div>
    
 </div>

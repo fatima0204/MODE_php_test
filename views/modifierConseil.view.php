@@ -10,8 +10,8 @@ ob_start();
     </div>
 <br>
     <div class="form-group">
-        <label for="nbPages">Nombre de pages : </label>
-        <input type="number" class="form-control" id="nbPages" name="nbPages" value="<?= $conseil->getNbPages()?>" >
+        <label for="article">Article : </label>
+        <input type="text" class="form-control" id="article" name="article" value="<?= $conseil->getArticle()?>" >
     </div>
 <br>
 <h3>Image : </h3>

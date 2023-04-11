@@ -6,7 +6,7 @@ ob_start();
     <tr class="table-dark">
         <th>Image</th>
         <th>Titre</th>
-        <th>Nombre de pages</th>
+        <th>Article</th>
         <th colspan="2">Actions</th>
     </tr>
     <?php 
@@ -15,7 +15,7 @@ ob_start();
     <tr>
         <td class="align-middle"><img src="public/images/<?= $conseils[$i]->getImage(); ?>" width="60px;"></td>
         <td class="align-middle"><a href="index.php?page=conseils/l/<?= $conseils[$i]->getId();?>"><?= $conseils[$i]->getTitre(); ?></a></td>
-        <td class="align-middle"><?= $conseils[$i]->getNbPages(); ?></td>
+        <td class="align-middle"><?= $conseils[$i]->getArticle(); ?></td>
         <td class="align-middle"><a href="index.php?page=conseils/m/<?= $conseils[$i]->getId();?>" class="btn" id="buttmod">Modifier</a></td>
         <td class="align-middle">
             <form method="POST" action="index.php?page=conseils/s/<?= $conseils[$i]->getId();?>" onSubmit="return confirm('Voulez-vous vraiment supprimer cet article?');">

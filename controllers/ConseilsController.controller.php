@@ -27,7 +27,7 @@ class ConseilsController{
         $file = $_FILES['image'];
         $repertoire = "public/images/";
         $nomImageAjoute = $this->ajoutImage($file,$repertoire);
-        $this->conseilManager->ajoutConseilBd($_POST['titre'],$_POST['nbPages'],$nomImageAjoute);
+        $this->conseilManager->ajoutConseilBd($_POST['titre'],$_POST['article'],$nomImageAjoute);
         header('Location: '. URL . "index.php?page=conseils");
     }
 
@@ -57,7 +57,7 @@ class ConseilsController{
         }else {
             $nomImageToAd = $imageActuelle;
         }
-        $this->conseilManager->modificationConseilBD($_POST['identifiant'],$_POST['titre'],$_POST['nbPages'],$nomImageToAd);
+        $this->conseilManager->modificationConseilBD($_POST['identifiant'],$_POST['titre'],$_POST['article'],$nomImageToAd);
         header('Location: '. URL . "index.php?page=conseils");
     }
 

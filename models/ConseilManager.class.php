@@ -20,7 +20,7 @@ class ConseilManager extends Model{
         $req->closeCursor();
 
         foreach($mesConseils as $conseil){
-            $c = new Conseil($conseil['id'],$conseil['titre'],$conseil['nbPages'],$conseil['image']);
+            $c = new Conseil($conseil['id'],$conseil['titre'],$conseil['article'],$conseil['image']);
             $this->ajoutConseil($c);
         }
     }
@@ -34,19 +34,19 @@ class ConseilManager extends Model{
         }
 
     }
-    public function ajoutConseilBd($titre,$nbPages,$image){
+    public function ajoutConseilBd($titre,$article,$image){
         $req = "
-        INSERT INTO conseils(titre, nbPages, image)
-        value(:titre, :nbPages, :image)";
+        INSERT INTO conseils(titre, article, image)
+        value(:titre, :article, :image)";
         $stmt = $this->getBdd()->prepare($req);
         $stmt->bindValue(":titre",$titre,PDO::PARAM_STR);
-        $stmt->bindValue(":nbPages",$nbPages,PDO::PARAM_INT);
+        $stmt->bindValue(":article",$article,PDO::PARAM_INT);
         $stmt->bindValue(":image",$image,PDO::PARAM_STR);
         $resultat = $stmt->execute();
         $stmt->closeCursor();
 
         if($resultat > 0){
-            $conseil = new Conseil($this->getBdd()->lastInsertId(),$titre,$nbPages,$image);
+            $conseil = new Conseil($this->getBdd()->lastInsertId(),$titre,$article,$image);
             $this->ajoutConseil($conseil);
         }
         
@@ -70,22 +70,22 @@ class ConseilManager extends Model{
 
     
     }
-    public function modificationConseilBD($id,$titre,$nbPages,$image){
+    public function modificationConseilBD($id,$titre,$article,$image){
         $req = "
         update conseils 
-        set titre = :titre, nbPages = :nbPages, image = :image
+        set titre = :titre, article = :article, image = :image
         where id = :id";
         $stmt = $this->getBdd()->prepare($req);
         $stmt->bindValue(":id",$id,PDO::PARAM_INT);
         $stmt->bindValue(":titre",$titre,PDO::PARAM_STR);
-        $stmt->bindValue(":nbPages",$nbPages,PDO::PARAM_INT);
+        $stmt->bindValue(":article",$article,PDO::PARAM_INT);
         $stmt->bindValue(":image",$image,PDO::PARAM_STR);
         $resultat = $stmt->execute();
         $stmt->closeCursor();
 
         if($resultat > 0){
             $this->getConseilById($id)->setTitre($titre);
-            $this->getConseilById($id)->setTitre($nbPages);
+            $this->getConseilById($id)->setTitre($article);
             $this->getConseilById($id)->setTitre($image);
 
         }

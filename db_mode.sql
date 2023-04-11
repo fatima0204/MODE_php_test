@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `conseils` (
   `id` int(11) NOT NULL,
   `titre` varchar(150) NOT NULL,
-  `nbPages` int(11) NOT NULL,
+  `article` text(255) NOT NULL,
   `image` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
